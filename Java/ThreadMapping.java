@@ -1,4 +1,4 @@
-public class ThreadMappingInvestigation {
+public class ThreadMapping {
     public static void main(String[] args) throws Exception {
         long pid = ProcessHandle.current().pid();
         System.out.println("PID: " + pid);
