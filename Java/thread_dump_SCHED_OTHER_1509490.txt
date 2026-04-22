@@ -1,0 +1,3573 @@
+Thread dump for PID: 1509490
+Generated: ons 22 apr 2026 14:27:35 CEST
+========================================
+
+========================================
+THREAD ID: 1509490
+========================================
+
+[STATUS]
+Name:	java
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509490
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509490
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+java (1509490, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832372777.606062
+se.vruntime                                  :            45.694872
+se.sum_exec_runtime                          :             1.635415
+se.nr_migrations                             :                    0
+nr_switches                                  :                    2
+nr_voluntary_switches                        :                    2
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   14
+se.avg.runnable_sum                          :                14336
+se.avg.util_sum                              :                14336
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4828582897208320
+se.avg.util_est                              :                  239
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509491
+========================================
+
+[STATUS]
+Name:	java
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509491
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509491
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	73
+nonvoluntary_ctxt_switches:	1
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+java (1509491, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834039162.234472
+se.vruntime                                  :          6262.365136
+se.sum_exec_runtime                          :            24.776536
+se.nr_migrations                             :                    1
+nr_switches                                  :                   74
+nr_voluntary_switches                        :                   73
+nr_involuntary_switches                      :                    1
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                42612
+se.avg.runnable_sum                          :             25866815
+se.avg.util_sum                              :             25866815
+se.avg.load_avg                              :                  929
+se.avg.runnable_avg                          :                  549
+se.avg.util_avg                              :                  549
+se.avg.last_update_time                      :     4833282205426688
+se.avg.util_est                              :                  549
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   41
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509492
+========================================
+
+[STATUS]
+Name:	GC Thread#0
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509492
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509492
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	12
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#0 (1509492, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4835318009.747706
+se.vruntime                                  :         49314.281562
+se.sum_exec_runtime                          :             0.278196
+se.nr_migrations                             :                    1
+nr_switches                                  :                   12
+nr_voluntary_switches                        :                   12
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                  219
+se.avg.runnable_sum                          :               223232
+se.avg.util_sum                              :               223232
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4832962381707264
+se.avg.util_est                              :                  245
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   44
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509493
+========================================
+
+[STATUS]
+Name:	G1 Main Marker
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509493
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509493
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+G1 Main Marker (1509493, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4831066061.716805
+se.vruntime                                  :           951.993405
+se.sum_exec_runtime                          :             0.033185
+se.nr_migrations                             :                    1
+nr_switches                                  :                    3
+nr_voluntary_switches                        :                    3
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                37280
+se.avg.runnable_sum                          :              7507923
+se.avg.util_sum                              :              7507923
+se.avg.load_avg                              :                  809
+se.avg.runnable_avg                          :                  159
+se.avg.util_avg                              :                  159
+se.avg.last_update_time                      :     4829923390215168
+se.avg.util_est                              :                  201
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   44
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509494
+========================================
+
+[STATUS]
+Name:	G1 Conc#0
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509494
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509494
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+G1 Conc#0 (1509494, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832362256.575484
+se.vruntime                                  :            45.624367
+se.sum_exec_runtime                          :             0.020878
+se.nr_migrations                             :                    0
+nr_switches                                  :                    2
+nr_voluntary_switches                        :                    2
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46785
+se.avg.runnable_sum                          :              4739130
+se.avg.util_sum                              :              4739130
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                  101
+se.avg.util_avg                              :                  101
+se.avg.last_update_time                      :     4828572376180736
+se.avg.util_est                              :                  101
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   32
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509495
+========================================
+
+[STATUS]
+Name:	G1 Refine#0
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509495
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509495
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+G1 Refine#0 (1509495, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4830890497.562232
+se.vruntime                                  :          8928.317646
+se.sum_exec_runtime                          :             0.049954
+se.nr_migrations                             :                    1
+nr_switches                                  :                    3
+nr_voluntary_switches                        :                    3
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                37606
+se.avg.runnable_sum                          :             12871814
+se.avg.util_sum                              :             12871814
+se.avg.load_avg                              :                  820
+se.avg.runnable_avg                          :                  274
+se.avg.util_avg                              :                  274
+se.avg.last_update_time                      :     4829612596251648
+se.avg.util_est                              :                  342
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509496
+========================================
+
+[STATUS]
+Name:	G1 Service
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509496
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509496
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3771
+nonvoluntary_ctxt_switches:	3
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+G1 Service (1509496, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4836131451.009677
+se.vruntime                                  :            69.757722
+se.sum_exec_runtime                          :            57.718105
+se.nr_migrations                             :                   46
+nr_switches                                  :                 3774
+nr_voluntary_switches                        :                 3771
+nr_involuntary_switches                      :                    3
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   16
+se.avg.runnable_sum                          :                16384
+se.avg.util_sum                              :                16384
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4831787519484928
+se.avg.util_est                              :                    8
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509497
+========================================
+
+[STATUS]
+Name:	VM Periodic Tas
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509497
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509497
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	75098
+nonvoluntary_ctxt_switches:	48
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+VM Periodic Tas (1509497, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834829952.315196
+se.vruntime                                  :           983.523482
+se.sum_exec_runtime                          :           915.318343
+se.nr_migrations                             :                 1091
+nr_switches                                  :                75146
+nr_voluntary_switches                        :                75098
+nr_involuntary_switches                      :                   48
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   15
+se.avg.runnable_sum                          :                16416
+se.avg.util_sum                              :                16416
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4833687276862464
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   44
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509498
+========================================
+
+[STATUS]
+Name:	VM Thread
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509498
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509498
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3792
+nonvoluntary_ctxt_switches:	4
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+VM Thread (1509498, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4838173786.785486
+se.vruntime                                  :         24642.399396
+se.sum_exec_runtime                          :            42.252757
+se.nr_migrations                             :                   71
+nr_switches                                  :                 3796
+nr_voluntary_switches                        :                 3792
+nr_involuntary_switches                      :                    4
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   14
+se.avg.runnable_sum                          :                14336
+se.avg.util_sum                              :                14336
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4837563590041600
+se.avg.util_est                              :                    7
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509499
+========================================
+
+[STATUS]
+Name:	Reference Handl
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509499
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509499
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Reference Handl (1509499, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834925570.463739
+se.vruntime                                  :            46.029262
+se.sum_exec_runtime                          :             0.236479
+se.nr_migrations                             :                    0
+nr_switches                                  :                    3
+nr_voluntary_switches                        :                    3
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   46
+se.avg.runnable_sum                          :                47104
+se.avg.util_sum                              :                47104
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4831135686045696
+se.avg.util_est                              :                   63
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   44
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509500
+========================================
+
+[STATUS]
+Name:	Finalizer
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509500
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509500
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Finalizer (1509500, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832224978.986012
+se.vruntime                                  :           110.381656
+se.sum_exec_runtime                          :             0.133565
+se.nr_migrations                             :                    0
+nr_switches                                  :                    2
+nr_voluntary_switches                        :                    2
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                47590
+se.avg.runnable_sum                          :              3611910
+se.avg.util_sum                              :              3611910
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                   74
+se.avg.util_avg                              :                   74
+se.avg.last_update_time                      :     4830720998366208
+se.avg.util_est                              :                   74
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509501
+========================================
+
+[STATUS]
+Name:	Signal Dispatch
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509501
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509501
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Signal Dispatch (1509501, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832310214.769099
+se.vruntime                                  :            44.414181
+se.sum_exec_runtime                          :             0.215191
+se.nr_migrations                             :                    1
+nr_switches                                  :                    4
+nr_voluntary_switches                        :                    4
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                  128
+se.avg.runnable_sum                          :               130048
+se.avg.util_sum                              :               130048
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4828484193562624
+se.avg.util_est                              :                  184
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   55
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509502
+========================================
+
+[STATUS]
+Name:	Service Thread
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509502
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509502
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	9
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Service Thread (1509502, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832240026.226126
+se.vruntime                                  :           112.027544
+se.sum_exec_runtime                          :             0.137244
+se.nr_migrations                             :                    2
+nr_switches                                  :                    9
+nr_voluntary_switches                        :                    9
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   12
+se.avg.runnable_sum                          :                11264
+se.avg.util_sum                              :                11264
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4830736045571072
+se.avg.util_est                              :                   43
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509503
+========================================
+
+[STATUS]
+Name:	Monitor Deflati
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509503
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509503
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	15064
+nonvoluntary_ctxt_switches:	12
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Monitor Deflati (1509503, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4835988139.790155
+se.vruntime                                  :            66.541108
+se.sum_exec_runtime                          :           171.655180
+se.nr_migrations                             :                  241
+nr_switches                                  :                15076
+nr_voluntary_switches                        :                15064
+nr_involuntary_switches                      :                   12
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   11
+se.avg.runnable_sum                          :                11340
+se.avg.util_sum                              :                11340
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4834416014395392
+se.avg.util_est                              :                    8
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509504
+========================================
+
+[STATUS]
+Name:	C2 CompilerThre
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509504
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509504
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	958
+nonvoluntary_ctxt_switches:	26
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+C2 CompilerThre (1509504, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4836373601.192654
+se.vruntime                                  :            33.090543
+se.sum_exec_runtime                          :           173.225633
+se.nr_migrations                             :                   48
+nr_switches                                  :                  984
+nr_voluntary_switches                        :                  958
+nr_involuntary_switches                      :                   26
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   13
+se.avg.runnable_sum                          :                13312
+se.avg.util_sum                              :                13312
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4834569636547584
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   38
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509505
+========================================
+
+[STATUS]
+Name:	C1 CompilerThre
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509505
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509505
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	924
+nonvoluntary_ctxt_switches:	6
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+C1 CompilerThre (1509505, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4837802938.529247
+se.vruntime                                  :          6271.053210
+se.sum_exec_runtime                          :            45.399462
+se.nr_migrations                             :                   38
+nr_switches                                  :                  930
+nr_voluntary_switches                        :                  924
+nr_involuntary_switches                      :                    6
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   15
+se.avg.runnable_sum                          :                15360
+se.avg.util_sum                              :                15360
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4837045978888192
+se.avg.util_est                              :                    8
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   30
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509506
+========================================
+
+[STATUS]
+Name:	Notification Th
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509506
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509506
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Notification Th (1509506, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832446543.879147
+se.vruntime                                  :            52.967622
+se.sum_exec_runtime                          :             0.061594
+se.nr_migrations                             :                    0
+nr_switches                                  :                    2
+nr_voluntary_switches                        :                    2
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                47083
+se.avg.runnable_sum                          :             24129536
+se.avg.util_sum                              :             24129536
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                  512
+se.avg.util_avg                              :                  512
+se.avg.last_update_time                      :     4830218203560960
+se.avg.util_est                              :                  512
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   36
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509507
+========================================
+
+[STATUS]
+Name:	Common-Cleaner
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509507
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509507
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	66
+nonvoluntary_ctxt_switches:	1
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Common-Cleaner (1509507, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4837757170.280635
+se.vruntime                                  :          6271.080332
+se.sum_exec_runtime                          :             3.248795
+se.nr_migrations                             :                    1
+nr_switches                                  :                   67
+nr_voluntary_switches                        :                   66
+nr_involuntary_switches                      :                    1
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   42
+se.avg.runnable_sum                          :                43008
+se.avg.util_sum                              :                43008
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4837000210639872
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509509
+========================================
+
+[STATUS]
+Name:	Worker-Max-Prio
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509509
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509509
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4858
+nonvoluntary_ctxt_switches:	44
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Worker-Max-Prio (1509509, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4836152577.768898
+se.vruntime                                  :         17612.624396
+se.sum_exec_runtime                          :           245.573193
+se.nr_migrations                             :                  400
+nr_switches                                  :                 4902
+nr_voluntary_switches                        :                 4858
+nr_involuntary_switches                      :                   44
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   45
+se.avg.runnable_sum                          :                46080
+se.avg.util_sum                              :                46080
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4835723839825920
+se.avg.util_est                              :                    8
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509510
+========================================
+
+[STATUS]
+Name:	Worker-High-Pri
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509510
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509510
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4766
+nonvoluntary_ctxt_switches:	41
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Worker-High-Pri (1509510, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4838174803.188965
+se.vruntime                                  :         24642.419213
+se.sum_exec_runtime                          :           237.511149
+se.nr_migrations                             :                  401
+nr_switches                                  :                 4807
+nr_voluntary_switches                        :                 4766
+nr_involuntary_switches                      :                   41
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   33
+se.avg.runnable_sum                          :                33792
+se.avg.util_sum                              :                33792
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4837564606444544
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   66
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509511
+========================================
+
+[STATUS]
+Name:	Worker-Norm-Pri
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509511
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509511
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4725
+nonvoluntary_ctxt_switches:	50
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Worker-Norm-Pri (1509511, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834652205.438379
+se.vruntime                                  :          8928.524023
+se.sum_exec_runtime                          :           245.285924
+se.nr_migrations                             :                  406
+nr_switches                                  :                 4775
+nr_voluntary_switches                        :                 4725
+nr_involuntary_switches                      :                   50
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   35
+se.avg.runnable_sum                          :                35840
+se.avg.util_sum                              :                35840
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4833374302801920
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   38
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509512
+========================================
+
+[STATUS]
+Name:	Worker-Low-Prio
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509512
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509512
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4817
+nonvoluntary_ctxt_switches:	31
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Worker-Low-Prio (1509512, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4836213217.870871
+se.vruntime                                  :            53.926540
+se.sum_exec_runtime                          :           236.026706
+se.nr_migrations                             :                  412
+nr_switches                                  :                 4848
+nr_voluntary_switches                        :                 4817
+nr_involuntary_switches                      :                   31
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   54
+se.avg.runnable_sum                          :                55296
+se.avg.util_sum                              :                55296
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4833984870726656
+se.avg.util_est                              :                    7
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   40
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509513
+========================================
+
+[STATUS]
+Name:	Worker-Min-Prio
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509513
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509513
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	4891
+nonvoluntary_ctxt_switches:	45
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Worker-Min-Prio (1509513, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4836375607.298619
+se.vruntime                                  :            33.143338
+se.sum_exec_runtime                          :           241.071449
+se.nr_migrations                             :                  245
+nr_switches                                  :                 4936
+nr_voluntary_switches                        :                 4891
+nr_involuntary_switches                      :                   45
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   51
+se.avg.runnable_sum                          :                52224
+se.avg.util_sum                              :                52224
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4834571642640384
+se.avg.util_est                              :                    9
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   40
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1509544
+========================================
+
+[STATUS]
+Name:	Attach Listener
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1509544
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1509544
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	12
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+Attach Listener (1509544, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4830914575.542365
+se.vruntime                                  :          8928.320872
+se.sum_exec_runtime                          :             0.398207
+se.nr_migrations                             :                    1
+nr_switches                                  :                   12
+nr_voluntary_switches                        :                   12
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                   50
+se.avg.runnable_sum                          :                51200
+se.avg.util_sum                              :                51200
+se.avg.load_avg                              :                    0
+se.avg.runnable_avg                          :                    0
+se.avg.util_avg                              :                    0
+se.avg.last_update_time                      :     4829636674231296
+se.avg.util_est                              :                  299
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511835
+========================================
+
+[STATUS]
+Name:	GC Thread#1
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511835
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511835
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	7
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#1 (1511835, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4835009478.695833
+se.vruntime                                  :            53.754841
+se.sum_exec_runtime                          :             0.287884
+se.nr_migrations                             :                    1
+nr_switches                                  :                    7
+nr_voluntary_switches                        :                    7
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                44966
+se.avg.runnable_sum                          :             23111380
+se.avg.util_sum                              :             23111380
+se.avg.load_avg                              :                  985
+se.avg.runnable_avg                          :                  494
+se.avg.util_avg                              :                  494
+se.avg.last_update_time                      :     4832781131591680
+se.avg.util_est                              :                  507
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   40
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511836
+========================================
+
+[STATUS]
+Name:	GC Thread#2
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511836
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511836
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	8
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#2 (1511836, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4835171717.144033
+se.vruntime                                  :            32.831042
+se.sum_exec_runtime                          :             0.300269
+se.nr_migrations                             :                    0
+nr_switches                                  :                    8
+nr_voluntary_switches                        :                    8
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                45465
+se.avg.runnable_sum                          :             23388368
+se.avg.util_sum                              :             23388368
+se.avg.load_avg                              :                  993
+se.avg.runnable_avg                          :                  497
+se.avg.util_avg                              :                  497
+se.avg.last_update_time                      :     4833367752502272
+se.avg.util_est                              :                  505
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511837
+========================================
+
+[STATUS]
+Name:	GC Thread#3
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511837
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511837
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	9
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#3 (1511837, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834925570.355271
+se.vruntime                                  :            45.970301
+se.sum_exec_runtime                          :             0.345172
+se.nr_migrations                             :                    0
+nr_switches                                  :                    9
+nr_voluntary_switches                        :                    9
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46106
+se.avg.runnable_sum                          :             11993298
+se.avg.util_sum                              :             11993298
+se.avg.load_avg                              :                  999
+se.avg.runnable_avg                          :                  251
+se.avg.util_avg                              :                  251
+se.avg.last_update_time                      :     4831135685951488
+se.avg.util_est                              :                  256
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   41
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511838
+========================================
+
+[STATUS]
+Name:	GC Thread#4
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511838
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511838
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#4 (1511838, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4832698227.359188
+se.vruntime                                  :            80.290433
+se.sum_exec_runtime                          :             0.277707
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46407
+se.avg.runnable_sum                          :             12014396
+se.avg.util_sum                              :             12014396
+se.avg.load_avg                              :                 1004
+se.avg.runnable_avg                          :                  252
+se.avg.util_avg                              :                  252
+se.avg.last_update_time                      :     4829623462296576
+se.avg.util_est                              :                  256
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   51
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511839
+========================================
+
+[STATUS]
+Name:	GC Thread#5
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511839
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511839
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	1
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#5 (1511839, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4833449862.017988
+se.vruntime                                  :          8928.493376
+se.sum_exec_runtime                          :             0.327616
+se.nr_migrations                             :                    1
+nr_switches                                  :                    7
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    1
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                45799
+se.avg.runnable_sum                          :              6131697
+se.avg.util_sum                              :              6131697
+se.avg.load_avg                              :                 1001
+se.avg.runnable_avg                          :                  130
+se.avg.util_avg                              :                  130
+se.avg.last_update_time                      :     4832171959382016
+se.avg.util_est                              :                  130
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   39
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511840
+========================================
+
+[STATUS]
+Name:	GC Thread#6
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511840
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511840
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#6 (1511840, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834863094.920296
+se.vruntime                                  :            44.537282
+se.sum_exec_runtime                          :             0.243703
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46770
+se.avg.runnable_sum                          :              6163712
+se.avg.util_sum                              :              6163712
+se.avg.load_avg                              :                 1011
+se.avg.runnable_avg                          :                  128
+se.avg.util_avg                              :                  128
+se.avg.last_update_time                      :     4831037064421376
+se.avg.util_est                              :                  129
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   32
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511841
+========================================
+
+[STATUS]
+Name:	GC Thread#7
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511841
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511841
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#7 (1511841, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834927457.307437
+se.vruntime                                  :            69.741442
+se.sum_exec_runtime                          :             0.269326
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46652
+se.avg.runnable_sum                          :              6163056
+se.avg.util_sum                              :              6163056
+se.avg.load_avg                              :                 1022
+se.avg.runnable_avg                          :                  131
+se.avg.util_avg                              :                  131
+se.avg.last_update_time                      :     4830583526253568
+se.avg.util_est                              :                  131
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   32
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511842
+========================================
+
+[STATUS]
+Name:	GC Thread#8
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511842
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511842
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#8 (1511842, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4834949607.008322
+se.vruntime                                  :         17612.525990
+se.sum_exec_runtime                          :             0.283685
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                47501
+se.avg.runnable_sum                          :              3269775
+se.avg.util_sum                              :              3269775
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                   65
+se.avg.util_avg                              :                   65
+se.avg.last_update_time                      :     4834520869064704
+se.avg.util_est                              :                   65
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   40
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511843
+========================================
+
+[STATUS]
+Name:	GC Thread#9
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511843
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511843
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#9 (1511843, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4833627321.219255
+se.vruntime                                  :           983.385651
+se.sum_exec_runtime                          :             0.262892
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                46648
+se.avg.runnable_sum                          :              3208758
+se.avg.util_sum                              :              3208758
+se.avg.load_avg                              :                 1020
+se.avg.runnable_avg                          :                   68
+se.avg.util_avg                              :                   68
+se.avg.last_update_time                      :     4832484645766144
+se.avg.util_est                              :                   68
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   47
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511844
+========================================
+
+[STATUS]
+Name:	GC Thread#10
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511844
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511844
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#10 (1511844, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4835361912.316513
+se.vruntime                                  :         33861.643826
+se.sum_exec_runtime                          :             0.226504
+se.nr_migrations                             :                    1
+nr_switches                                  :                    6
+nr_voluntary_switches                        :                    6
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                47451
+se.avg.runnable_sum                          :              1993436
+se.avg.util_sum                              :              1993436
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                   38
+se.avg.util_avg                              :                   38
+se.avg.last_update_time                      :     4834317854211072
+se.avg.util_est                              :                   38
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   46
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
+
+========================================
+THREAD ID: 1511845
+========================================
+
+[STATUS]
+Name:	GC Thread#11
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1509490
+Ngid:	0
+Pid:	1511845
+PPid:	1509480
+TracerPid:	0
+Uid:	19148	19148	19148	19148
+Gid:	12345	12345	12345	12345
+FDSize:	256
+Groups:	12345 
+NStgid:	1509490
+NSpid:	1511845
+NSpgid:	1509480
+NSsid:	1504759
+Kthread:	0
+VmPeak:	12409176 kB
+VmSize:	12409176 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   75472 kB
+VmRSS:	   75472 kB
+RssAnon:	   53432 kB
+RssFile:	   22008 kB
+RssShmem:	      32 kB
+VmData:	  669084 kB
+VmStk:	     136 kB
+VmExe:	       4 kB
+VmLib:	   18700 kB
+VmPTE:	     584 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+untag_mask:	0xffffffffffffffff
+Threads:	35
+SigQ:	1/126643
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000004
+SigIgn:	0000000000000000
+SigCgt:	0000000101005ccf
+CapInh:	0000000800000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fffff
+Cpus_allowed_list:	0-19
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	8
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:	
+x86_Thread_features_locked:	
+
+[SCHED]
+GC Thread#11 (1511845, #threads: 35)
+-------------------------------------------------------------------
+se.exec_start                                :    4833950385.229080
+se.vruntime                                  :         44459.183092
+se.sum_exec_runtime                          :             0.297011
+se.nr_migrations                             :                    1
+nr_switches                                  :                    8
+nr_voluntary_switches                        :                    8
+nr_involuntary_switches                      :                    0
+se.load.weight                               :              1048576
+se.avg.load_sum                              :                47292
+se.avg.runnable_sum                          :              1723648
+se.avg.util_sum                              :              1723648
+se.avg.load_avg                              :                 1024
+se.avg.runnable_avg                          :                   32
+se.avg.util_avg                              :                   32
+se.avg.last_update_time                      :     4832503182206976
+se.avg.util_est                              :                   32
+uclamp.min                                   :                    0
+uclamp.max                                   :                 1024
+effective uclamp.min                         :                    0
+effective uclamp.max                         :                 1024
+policy                                       :                    0
+prio                                         :                  120
+se.slice                                     :              2800000
+ext.enabled                                  :                    0
+clock-delta                                  :                   60
+mm->numa_scan_seq                            :                    0
+numa_pages_migrated                          :                    0
+numa_preferred_nid                           :                   -1
+total_numa_faults                            :                    0
+current_node=0, numa_group_id=0
+numa_faults node=0 task_private=0 task_shared=0 group_private=0 group_shared=0
