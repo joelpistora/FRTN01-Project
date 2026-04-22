@@ -4,6 +4,7 @@
  * The threads run a simple loop that increments a counter to keep the CPU busy
  * They also continuously print a heartbeat to show that they are alive
  * The PID of the program is printed at the start to be able to find the threads using Linux commands
+ * --busy is a flag that makes the program only do calculaltions instead of sleeping. This was added to add more CPU load
  * */ 
 
 public class ThreadMapping {
@@ -11,6 +12,20 @@ public class ThreadMapping {
         long pid = ProcessHandle.current().pid();
         System.out.println("PID: " + pid);
         System.out.println("Java version: " + System.getProperty("java.version"));
+        final boolean busyMode;
+        final int busySeconds; // default busy duration when busy mode is enabled
+        if (args.length > 0 && "--busy".equals(args[0])) {
+            busyMode = true;
+            int bs = 10;
+            if (args.length > 1) {
+                try { bs = Integer.parseInt(args[1]); } catch (NumberFormatException ignored) {}
+            }
+            busySeconds = bs;
+            System.out.println("Running in BUSY mode for " + busySeconds + " seconds");
+        } else {
+            busyMode = false;
+            busySeconds = 10;
+        }
 
         String[] names = new String[] {
             "Worker-Max-Priority",
@@ -36,16 +51,25 @@ public class ThreadMapping {
                 Thread ct = Thread.currentThread();
                 System.out.printf("Thread started: name=%s javaId=%d priority=%d%n", ct.getName(), ct.getId(), ct.getPriority());
                 long counter = 0L;
-                while (!Thread.currentThread().isInterrupted()) {
-                    counter++;
-                    double dummy = Math.sqrt(counter % 1000); // small computation to keep thread active
-                    if ((counter & 0xFFFF) == 0) {
-                        System.out.printf("Heartbeat: %s javaId=%d priority=%d counter=%d%n", ct.getName(), ct.getId(), ct.getPriority(), counter);
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                            break;
+                if (busyMode) {
+                    long end = System.currentTimeMillis() + busySeconds * 1000L;
+                    while (!Thread.currentThread().isInterrupted() && System.currentTimeMillis() < end) {
+                        counter++;
+                        double dummy = Math.sqrt(counter % 1000);
+                    }
+                    System.out.printf("Busy mode finished: %s javaId=%d priority=%d counter=%d%n", ct.getName(), ct.getId(), ct.getPriority(), counter);
+                } else {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        counter++;
+                        double dummy = Math.sqrt(counter % 1000); // small computation to keep thread active
+                        if ((counter & 0xFFFF) == 0) {
+                            System.out.printf("Heartbeat: %s javaId=%d priority=%d counter=%d%n", ct.getName(), ct.getId(), ct.getPriority(), counter);
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                                break;
+                            }
                         }
                     }
                 }
