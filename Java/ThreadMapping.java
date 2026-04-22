@@ -1,3 +1,11 @@
+/**
+ * This Java program is used to investigate the mapping between JVM treads and native Linux threads
+ * It creates five Java threads with different priorities from MAX to MIN priority
+ * The threads run a simple loop that increments a counter to keep the CPU busy
+ * They also continuously print a heartbeat to show that they are alive
+ * The PID of the program is printed at the start to be able to find the threads using Linux commands
+ * */ 
+
 public class ThreadMapping {
     public static void main(String[] args) throws Exception {
         long pid = ProcessHandle.current().pid();
