@@ -4,7 +4,7 @@
  * The threads run a simple loop that increments a counter to keep the CPU busy
  * They also continuously print a heartbeat to show that they are alive
  * The PID of the program is printed at the start to be able to find the threads using Linux commands
- * --busy is a flag that makes the program only do calculaltions instead of sleeping. This was added to add more CPU load
+ * --busy is a flag that makes the program only do calulcations instead of sleeping for 30 seconds. This was added to add more CPU load for a shorter while
  * */ 
 
 public class ThreadMapping {
