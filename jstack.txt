@@ -1,0 +1,185 @@
+2026-04-22 13:25:11
+Full thread dump OpenJDK 64-Bit Server VM (21.0.9+10 mixed mode, sharing):
+
+Threads class SMR info:
+_java_thread_list=0x00007f2f8002a2a0, length=16, elements={
+0x00007f303c030200, 0x00007f303c1571a0, 0x00007f303c1583b0, 0x00007f303c159990,
+0x00007f303c15c3e0, 0x00007f303c15d9b0, 0x00007f303c15f450, 0x00007f303c160a90,
+0x00007f303c16c2d0, 0x00007f303c1775d0, 0x00007f303c192df0, 0x00007f303c193ea0,
+0x00007f303c195060, 0x00007f303c196220, 0x00007f303c1973d0, 0x00007f2f94000ed0
+}
+
+"main" #1 [1509491] prio=5 os_prio=0 cpu=24.78ms elapsed=24.11s tid=0x00007f303c030200 nid=1509491 in Object.wait()  [0x00007f30427fe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@21.0.9/Native Method)
+	- waiting on <0x000000062dc5e638> (a java.lang.Thread)
+	at java.lang.Object.wait(java.base@21.0.9/Object.java:366)
+	at java.lang.Thread.join(java.base@21.0.9/Thread.java:2079)
+	- locked <0x000000062dc5e638> (a java.lang.Thread)
+	at java.lang.Thread.join(java.base@21.0.9/Thread.java:2155)
+	at ThreadMapping.main(ThreadMapping.java:99)
+
+   Locked ownable synchronizers:
+	- None
+
+"Reference Handler" #9 [1509499] daemon prio=10 os_prio=0 cpu=0.17ms elapsed=24.10s tid=0x00007f303c1571a0 nid=1509499 waiting on condition  [0x00007f3018910000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@21.0.9/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@21.0.9/Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@21.0.9/Reference.java:208)
+
+   Locked ownable synchronizers:
+	- None
+
+"Finalizer" #10 [1509500] daemon prio=8 os_prio=0 cpu=0.13ms elapsed=24.10s tid=0x00007f303c1583b0 nid=1509500 in Object.wait()  [0x00007f3018810000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@21.0.9/Native Method)
+	- waiting on <0x000000062dc02600> (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@21.0.9/Object.java:366)
+	at java.lang.Object.wait(java.base@21.0.9/Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(java.base@21.0.9/NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.9/ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(java.base@21.0.9/NativeReferenceQueue.java:89)
+	- locked <0x000000062dc02600> (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@21.0.9/Finalizer.java:173)
+
+   Locked ownable synchronizers:
+	- None
+
+"Signal Dispatcher" #11 [1509501] daemon prio=9 os_prio=0 cpu=0.22ms elapsed=24.10s tid=0x00007f303c159990 nid=1509501 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Service Thread" #12 [1509502] daemon prio=9 os_prio=0 cpu=0.14ms elapsed=24.10s tid=0x00007f303c15c3e0 nid=1509502 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Monitor Deflation Thread" #13 [1509503] daemon prio=9 os_prio=0 cpu=1.49ms elapsed=24.10s tid=0x00007f303c15d9b0 nid=1509503 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"C2 CompilerThread0" #14 [1509504] daemon prio=9 os_prio=0 cpu=20.80ms elapsed=24.10s tid=0x00007f303c15f450 nid=1509504 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+   Locked ownable synchronizers:
+	- None
+
+"C1 CompilerThread0" #22 [1509505] daemon prio=9 os_prio=0 cpu=27.18ms elapsed=24.10s tid=0x00007f303c160a90 nid=1509505 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+   Locked ownable synchronizers:
+	- None
+
+"Notification Thread" #26 [1509506] daemon prio=9 os_prio=0 cpu=0.06ms elapsed=24.10s tid=0x00007f303c16c2d0 nid=1509506 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Common-Cleaner" #27 [1509507] daemon prio=8 os_prio=0 cpu=0.26ms elapsed=24.10s tid=0x00007f303c1775d0 nid=1509507 waiting on condition  [0x00007f2fc2ffe000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.9/Native Method)
+	- parking to wait for  <0x000000062dc13108> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.9/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.9/AbstractQueuedSynchronizer.java:1886)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.9/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.9/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.9/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.9/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.9/InnocuousThread.java:186)
+
+   Locked ownable synchronizers:
+	- None
+
+"Worker-Max-Priority" #28 [1509509] prio=10 os_prio=0 cpu=36.37ms elapsed=24.09s tid=0x00007f303c192df0 nid=1509509 waiting on condition  [0x00007f2fc2dfe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.9/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.9/Thread.java:509)
+	at ThreadMapping.lambda$main$0(ThreadMapping.java:68)
+	at ThreadMapping$$Lambda/0x00007f2fc4000a08.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+
+   Locked ownable synchronizers:
+	- None
+
+"Worker-High-Priority" #29 [1509510] prio=8 os_prio=0 cpu=31.27ms elapsed=24.09s tid=0x00007f303c193ea0 nid=1509510 waiting on condition  [0x00007f2fc2cfe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.9/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.9/Thread.java:509)
+	at ThreadMapping.lambda$main$0(ThreadMapping.java:68)
+	at ThreadMapping$$Lambda/0x00007f2fc4000a08.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+
+   Locked ownable synchronizers:
+	- None
+
+"Worker-Norm-Priority" #30 [1509511] prio=5 os_prio=0 cpu=28.31ms elapsed=24.09s tid=0x00007f303c195060 nid=1509511 waiting on condition  [0x00007f2fc2bfe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.9/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.9/Thread.java:509)
+	at ThreadMapping.lambda$main$0(ThreadMapping.java:68)
+	at ThreadMapping$$Lambda/0x00007f2fc4000a08.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+
+   Locked ownable synchronizers:
+	- None
+
+"Worker-Low-Priority" #31 [1509512] prio=3 os_prio=0 cpu=28.81ms elapsed=24.09s tid=0x00007f303c196220 nid=1509512 waiting on condition  [0x00007f2fc2afe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.9/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.9/Thread.java:509)
+	at ThreadMapping.lambda$main$0(ThreadMapping.java:68)
+	at ThreadMapping$$Lambda/0x00007f2fc4000a08.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+
+   Locked ownable synchronizers:
+	- None
+
+"Worker-Min-Priority" #32 [1509513] prio=1 os_prio=0 cpu=29.36ms elapsed=24.09s tid=0x00007f303c1973d0 nid=1509513 waiting on condition  [0x00007f2fc29fe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.9/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.9/Thread.java:509)
+	at ThreadMapping.lambda$main$0(ThreadMapping.java:68)
+	at ThreadMapping$$Lambda/0x00007f2fc4000a08.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@21.0.9/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.9/Thread.java:1583)
+
+   Locked ownable synchronizers:
+	- None
+
+"Attach Listener" #34 [1509544] daemon prio=9 os_prio=0 cpu=0.38ms elapsed=13.59s tid=0x00007f2f94000ed0 nid=1509544 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" os_prio=0 cpu=1.60ms elapsed=24.10s tid=0x00007f303c14ce30 nid=1509498 runnable  
+
+"VM Periodic Task Thread" os_prio=0 cpu=6.45ms elapsed=24.11s tid=0x00007f303c13ad20 nid=1509497 waiting on condition  
+
+"G1 Service" os_prio=0 cpu=0.40ms elapsed=24.11s tid=0x00007f303c120c80 nid=1509496 runnable  
+
+"G1 Refine#0" os_prio=0 cpu=0.05ms elapsed=24.11s tid=0x00007f303c11fc90 nid=1509495 runnable  
+
+"G1 Conc#0" os_prio=0 cpu=0.02ms elapsed=24.11s tid=0x00007f303c06de40 nid=1509494 runnable  
+
+"G1 Main Marker" os_prio=0 cpu=0.03ms elapsed=24.11s tid=0x00007f303c06ce30 nid=1509493 runnable  
+
+"GC Thread#0" os_prio=0 cpu=0.05ms elapsed=24.11s tid=0x00007f303c05bf20 nid=1509492 runnable  
+
+JNI global refs: 17, weak refs: 0
+
