@@ -16,7 +16,7 @@ public class ThreadMapping {
         final int busySeconds; // default busy duration when busy mode is enabled
         if (args.length > 0 && "--busy".equals(args[0])) {
             busyMode = true;
-            int bs = 30;
+            int bs = 10;
             if (args.length > 1) {
                 try { bs = Integer.parseInt(args[1]); } catch (NumberFormatException ignored) {}
             }
@@ -24,7 +24,7 @@ public class ThreadMapping {
             System.out.println("Running in BUSY mode for " + busySeconds + " seconds");
         } else {
             busyMode = false;
-            busySeconds = 30;
+            busySeconds = 10;
         }
 
         String[] names = new String[] {
