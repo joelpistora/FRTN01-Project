@@ -3,7 +3,6 @@
 #include <errno.h>
 #include <getopt.h>
 #include <linux/sched.h>
-#include <math.h>
 #include <sched.h>
 #include <signal.h>
 #include <stdint.h>
@@ -524,20 +523,43 @@ static unsigned int parse_aref(const char *s)
 
 int main(int argc, char **argv)
 {
+    /*
+     * Default values for the program.
+     * These are used if the user does not give another value from the terminal.
+     */
     const char *policy = "other";
     const char *device = "/dev/comedi0";
 
+    /*
+     * Default real-time and experiment parameters.
+     * cpu = CPU core where I want to run the controller.
+     * priority is only used for SCHED_FIFO and SCHED_RR.
+     * duration_s is how long the experiment runs.
+     */
     int cpu = 1;
     int priority = 80;
     int duration_s = 20;
     int dl_overrun = 0;
 
+    /*
+     * Time parameters in microseconds.
+     * By default the controller period is 50000 us = 50 ms,
+     * which is the same sampling time used in the DC servo lab.
+     */
     uint64_t period_us = 50000;
     uint64_t runtime_us = 5000;
     uint64_t deadline_us = 0;
 
+    /*
+     * Reference value for the velocity controller.
+     * I use volts because the analog inputs and outputs are handled as voltages.
+     */
     double reference_v = 5.0;
 
+    /*
+     * Default COMEDI channels.
+     * AI0 is used for velocity, AI1 for position and AO0 for the control output.
+     */
     unsigned int ai_vel_chan = 0;
     unsigned int ai_pos_chan = 1;
     unsigned int ao_chan = 0;
@@ -545,6 +567,11 @@ int main(int argc, char **argv)
     unsigned int ao_range = 0;
     unsigned int aref = AREF_GROUND;
 
+    /*
+     * This array defines all the command line options that the program accepts.
+     * For example, --policy, --cpu, --period-us, etc.
+     * Each option is connected to one character that is used later in the switch.
+     */
     static struct option long_options[] = {
         {"policy", required_argument, 0, 'p'},
         {"cpu", required_argument, 0, 'c'},
@@ -569,60 +596,93 @@ int main(int argc, char **argv)
         {0, 0, 0, 0}
     };
 
+    /*
+     * Read the command line arguments.
+     * This lets me change the scheduling policy, CPU, period, duration,
+     * COMEDI channels, etc. without recompiling the program.
+     */
     int opt;
     while ((opt = getopt_long(argc, argv, "", long_options, NULL)) != -1) {
         switch (opt) {
+
+        /*
+         * Scheduling options.
+         */
         case 'p':
             policy = optarg;
             break;
+
         case 'c':
             cpu = atoi(optarg);
             break;
+
         case 'q':
             priority = atoi(optarg);
             break;
+
         case 'T':
             period_us = strtoull(optarg, NULL, 10);
             break;
+
         case 'r':
             runtime_us = strtoull(optarg, NULL, 10);
             break;
+
         case 'd':
             deadline_us = strtoull(optarg, NULL, 10);
             break;
+
         case 'o':
             dl_overrun = 1;
             break;
 
+        /*
+         * Experiment options.
+         */
         case 'D':
             duration_s = atoi(optarg);
             break;
+
         case 'R':
             reference_v = atof(optarg);
             break;
 
+        /*
+         * COMEDI input/output options.
+         * These are useful if the channels or ranges are different on another machine.
+         */
         case 'e':
             device = optarg;
             break;
+
         case 'v':
             ai_vel_chan = (unsigned int)strtoul(optarg, NULL, 10);
             break;
+
         case 'x':
             ai_pos_chan = (unsigned int)strtoul(optarg, NULL, 10);
             break;
+
         case 'a':
             ao_chan = (unsigned int)strtoul(optarg, NULL, 10);
             break;
+
         case 'i':
             ai_range = (unsigned int)strtoul(optarg, NULL, 10);
             break;
+
         case 'u':
             ao_range = (unsigned int)strtoul(optarg, NULL, 10);
             break;
+
         case 'A':
             aref = parse_aref(optarg);
             break;
 
+        /*
+         * If the user asks for help or gives a wrong option,
+         * I print the usage message and exit.
+         */
         case 'h':
         default:
             print_usage(argv[0]);
@@ -630,24 +690,53 @@ int main(int argc, char **argv)
         }
     }
 
+    /*
+     * If the user does not give a specific deadline,
+     * I use the period as the deadline.
+     * This means every job should finish before the next period starts.
+     */
     if (deadline_us == 0) {
         deadline_us = period_us;
     }
 
+    /*
+     * For SCHED_DEADLINE, Linux requires:
+     *
+     * runtime <= deadline <= period
+     *
+     * If this condition is not true, the parameters do not make sense,
+     * so the program stops.
+     */
     if (runtime_us > deadline_us || deadline_us > period_us) {
         fprintf(stderr, "Invalid SCHED_DEADLINE parameters: runtime <= deadline <= period required.\n");
         return EXIT_FAILURE;
     }
 
+    /*
+     * Convert the time values from microseconds to nanoseconds.
+     * The Linux timing functions and SCHED_DEADLINE parameters use nanoseconds.
+     */
     uint64_t period_ns = period_us * 1000ULL;
     uint64_t runtime_ns = runtime_us * 1000ULL;
     uint64_t deadline_ns = deadline_us * 1000ULL;
 
+    /*
+     * Sampling time in seconds.
+     * This value is used by the PI controller.
+     */
     double h = (double)period_us / 1000000.0;
 
+    /*
+     * Register signal handlers.
+     * This makes Ctrl+C stop the controller safely instead of killing it immediately.
+     */
     signal(SIGINT, handle_signal);
     signal(SIGTERM, handle_signal);
 
+    /*
+     * Initialize the COMEDI device and the analog channels.
+     * After this, the program can read velocity/position and write the control voltage.
+     */
     io_init(device,
             ai_vel_chan,
             ai_pos_chan,
@@ -656,6 +745,12 @@ int main(int argc, char **argv)
             ao_range,
             aref);
 
+    /*
+     * Real-time setup.
+     * First I lock memory to reduce page faults.
+     * Then I pin the controller to one CPU.
+     * Finally I set the selected scheduling policy.
+     */
     lock_memory();
     pin_to_cpu(cpu);
 
@@ -666,6 +761,10 @@ int main(int argc, char **argv)
                           period_ns,
                           dl_overrun);
 
+    /*
+     * Open the CSV file where I save the timing and control data.
+     * This file is used later to compare the scheduling policies.
+     */
     FILE *log = fopen("controller_log.csv", "w");
     if (!log) {
         perror("fopen controller_log.csv");
@@ -673,6 +772,10 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
+    /*
+     * Write the header row of the CSV file.
+     * Each row after this will contain data from one controller iteration.
+     */
     fprintf(log,
             "iteration,"
             "release_ns,"
@@ -687,23 +790,39 @@ int main(int argc, char **argv)
             "position_v,"
             "control_v\n");
 
+    /*
+     * Get the current time and calculate the first release time.
+     * The controller uses absolute time, so the next releases are based on this clock.
+     */
     struct timespec start_time;
     struct timespec next_release;
 
     clock_gettime(CLOCK_MONOTONIC, &start_time);
     next_release = timespec_add_ns(start_time, (int64_t)period_ns);
 
+    /*
+     * Calculate when the experiment should stop.
+     */
     int64_t experiment_end_ns =
         timespec_to_ns(start_time) + (int64_t)duration_s * NSEC_PER_SEC;
 
+    /*
+     * Variables used to count iterations and deadline misses.
+     */
     long iteration = 0;
     long deadline_misses = 0;
 
+    /*
+     * Variables used to calculate timing statistics.
+     */
     int64_t previous_start_ns = 0;
     int64_t max_latency_ns = 0;
     int64_t max_abs_jitter_ns = 0;
     int64_t max_exec_ns = 0;
 
+    /*
+     * Print the experiment configuration so I can see what is being tested.
+     */
     printf("\nController started\n");
     printf("Policy:       %s\n", policy);
     printf("CPU:          %d\n", cpu);
@@ -714,51 +833,97 @@ int main(int argc, char **argv)
     printf("Log:          controller_log.csv\n");
     printf("Press Ctrl+C to stop.\n\n");
 
+    /*
+     * Main periodic loop.
+     * Each iteration corresponds to one sample of the controller.
+     */
     while (keep_running) {
         struct timespec now;
         clock_gettime(CLOCK_MONOTONIC, &now);
 
+        /*
+         * Stop when the experiment time has passed.
+         */
         if (timespec_to_ns(now) >= experiment_end_ns) {
             break;
         }
 
+        /*
+         * Sleep until the next absolute release time.
+         * TIMER_ABSTIME is important because it avoids accumulating drift.
+         */
         int ret = clock_nanosleep(CLOCK_MONOTONIC,
                                   TIMER_ABSTIME,
                                   &next_release,
                                   NULL);
 
+        /*
+         * If the sleep failed for a reason other than being interrupted,
+         * print the error and stop the loop.
+         */
         if (ret != 0 && ret != EINTR) {
             errno = ret;
             perror("clock_nanosleep");
             break;
         }
 
+        /*
+         * Measure the actual start time of this iteration.
+         * This is used to calculate latency and jitter.
+         */
         struct timespec actual_start;
         clock_gettime(CLOCK_MONOTONIC, &actual_start);
 
         int64_t release_ns = timespec_to_ns(next_release);
         int64_t start_ns = timespec_to_ns(actual_start);
+
+        /*
+         * Latency is how late the controller started compared to its planned release time.
+         */
         int64_t latency_ns = start_ns - release_ns;
 
+        /*
+         * Jitter is the variation in the time between two consecutive starts.
+         * Ideally, the difference between starts should be exactly equal to the period.
+         */
         int64_t jitter_ns = 0;
         if (previous_start_ns != 0) {
             jitter_ns = (start_ns - previous_start_ns) - (int64_t)period_ns;
         }
         previous_start_ns = start_ns;
 
+        /*
+         * Execute one controller step:
+         * read sensors, compute PI output, and write the control voltage.
+         */
         sample_t s = controller_step(reference_v, h);
 
+        /*
+         * Measure when the controller step finished.
+         */
         struct timespec finish;
         clock_gettime(CLOCK_MONOTONIC, &finish);
 
         int64_t finish_ns = timespec_to_ns(finish);
+
+        /*
+         * Execution time is the time spent inside this iteration after waking up.
+         */
         int64_t exec_ns = finish_ns - start_ns;
 
+        /*
+         * Check if the controller finished after its deadline.
+         * If yes, I count it as a deadline miss.
+         */
         int deadline_miss = finish_ns > release_ns + (int64_t)deadline_ns;
         if (deadline_miss) {
             deadline_misses++;
         }
 
+        /*
+         * Update maximum latency, jitter and execution time.
+         * These are printed at the end as a simple summary.
+         */
         if (latency_ns > max_latency_ns) {
             max_latency_ns = latency_ns;
         }
@@ -771,6 +936,10 @@ int main(int argc, char **argv)
             max_exec_ns = exec_ns;
         }
 
+        /*
+         * Save one line in the CSV log file.
+         * This contains both timing data and control data.
+         */
         fprintf(log,
                 "%ld,%ld,%ld,%ld,%ld,%ld,%ld,%d,%.9f,%.9f,%.9f,%.9f\n",
                 iteration,
@@ -786,13 +955,31 @@ int main(int argc, char **argv)
                 s.position_v,
                 s.control_v);
 
+        /*
+         * Calculate the next release time.
+         * I add the period to the previous release time instead of using "now + period",
+         * because this keeps the periodic loop aligned with the original time base.
+         */
         next_release = timespec_add_ns(next_release, (int64_t)period_ns);
+
         iteration++;
     }
 
+    /*
+     * Stop the actuator and close the COMEDI device.
+     * This is important so the control output is not left active.
+     */
     io_shutdown();
+
+    /*
+     * Close the log file after all data has been written.
+     */
     fclose(log);
 
+    /*
+     * Print the final results of the experiment.
+     * These values are useful for comparing different scheduling policies.
+     */
     printf("\nFinished.\n");
     printf("Iterations:          %ld\n", iteration);
     printf("Deadline misses:     %ld\n", deadline_misses);
@@ -803,8 +990,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-/*
- * Main function of the program.
- * It reads the command line options, initializes COMEDI and the real-time settings,
- * then runs the periodic control loop and saves timing and control data in a CSV file.
- */
