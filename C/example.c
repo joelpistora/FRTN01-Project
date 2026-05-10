@@ -1,57 +1,60 @@
 #include <stdio.h>
 #include <moberg.h>
 #include <time.h>
+#include <pthread.h>
+#include <math.h>
+
+//Signals
+double uc; //Input: set point
+double y; //Input: Measured variable
+double v; //Output: Controller Output
+double u; //Output: Limited controller output
+double e;
+double velocity;
+//States
+double I = 0.0;//Integral part
+double yold = 0.0; //Delayed measured variable
+
+//Parameters
+double K = 2.6133; //Proportional Gain
+double B = 0.5; //Fraction of set point in prop. term
+double Ti = 0.4523;//Integral time
+double h = 0.05;// Sampling period
+double r = 5.0; //Reference
+double on = 1;//On = 1 or off = 0
+double Tr =10;
+double getY;
 
 
-
-double I = 0.0;
-double K = 2.6133;
-double B = 0.5;
-double Ti = 0.4523;
-double h = 0.05;
-double r = 5.0;
-double on = 0;
-double u= 0.0;
+static pthread_mutex_t lock = __PTHREAD_MUTEX_INITIALIZER;
 
 
-
-static void controller(struct moberg_analog_out analog_out_u,
-                       struct moberg_analog_in  analog_in_position,
-                       struct moberg_analog_in  analog_in_velocity)
-{
-    double u_c;
-    double position, velocity;
-    double y, u_unsat;
-
-    analog_in_position.read(analog_in_position.context, &position);
-    analog_in_velocity.read(analog_in_velocity.context, &velocity);
-    printf("[INFO] pos: %f, vel: %f\n", position, velocity);
-
-    if (on == 1) {
-        y = position;
-
-        // PI with setpoint weighting
-        u_unsat = K * B * r - K * y + I;
-
-        // Saturate output
-        if      (u_unsat >  10.0) u =  10.0;
-        else if (u_unsat < -10.0) u = -10.0;
-        else                      u =  u_unsat;
-
-        printf("[INFO] control signal: %f\n", u);
-        analog_out_u.write(analog_out_u.context, u, &u_c);
-        printf("[INFO] actual sent:    %f\n", u_c);
-
-        // Anti-windup: only integrate when not saturated
-        if (u == u_unsat) {
-            I = I + (K * h / Ti) * (r - y);
-        }
-    } else {
-        analog_out_u.write(analog_out_u.context, 0.0, &u_c);
-        I = 0.0;
-    }
+double calculateOutPut(double yref, double newY){
+    pthread_mutex_lock(&lock);
+    y = newY;
+    e = yref-y;
+    v = K*(B*yref - y)+I; 
+    pthread_mutex_unlock(&lock);
+    return v;
 }
+static void updateState(double u){
+    pthread_mutex_lock(&lock);
+    I = I + (K * h / Ti) * e + (h/Tr)*(u-v);
+    yold = y;
+    pthread_mutex_unlock(&lock);
 
+}
+double limit(double u_limit) {
+    pthread_mutex_lock(&lock);
+    if(u_limit > 5.0){
+        u_limit = 5.0;
+    }
+    else if(u_limit < -5.0){
+        u_limit = -5.0;
+    }
+    pthread_mutex_unlock(&lock);
+return u_limit;
+}
 
 int main()
 {
@@ -83,19 +86,30 @@ int main()
         printf("[ERROR] IO not work \n");
         return -1;
     }
-    struct timespec next;
-  clock_gettime(CLOCK_MONOTONIC, &next);
+    long h = 100;
+    long duration;
+    long t = current_time_ms();
 
-    while (on) {  // or some run condition
-      controller(analog_out_u, analog_in_position, analog_in_velocity);
+    while (on ==1) {  // or some run condition
 
-    // Advance deadline by h seconds
-    next.tv_nsec += (long)(h * 1e9);
-      if (next.tv_nsec >= 1000000000L) {
-        next.tv_nsec -= 1000000000L;
-        next.tv_sec  += 1;
+    analog_in_position.read(analog_in_position.context, &getY);
+    analog_in_velocity.read(analog_in_velocity.context, &velocity);
+    y = getY;
+    printf("[INFO] control signal: %f\n", u);
+    r = 5;
+    u = calculateOutPut(r, y);
+    u = limit(u);
+    printf("[INFO] control signal: %f\n", u);
+    analog_out_u.write(analog_out_u.context, u, &uc);
+    printf("[INFO] control signal: %f\n", u_c);
+    updateState(u);
+    t+= h;
+    duration = t - current_time_ms();
+    if(duration > 0) {
+        sleep_ms(duration);
     }
-    clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next, NULL);
+
+
 }
    
     
@@ -105,5 +119,19 @@ int main()
     status &= moberg_OK(moberg_analog_in_close(moberg, 1, analog_in_velocity));
 
     moberg_free(moberg);
+    
     return 0;
+}
+long current_time_ms() {
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec * 1000L + ts.tv_nsec / 1000000L;
+}
+
+void sleep_ms(long ms) {
+    struct timespec ts = {
+        .tv_sec  = ms / 1000,
+        .tv_nsec = (ms % 1000) * 1000000L
+    };
+    nanosleep(&ts, NULL);
 }
