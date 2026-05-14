@@ -15,7 +15,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include <comedilib.h>
+#include "moberg.h"
 
 #ifndef SCHED_DEADLINE
 #define SCHED_DEADLINE 6
@@ -28,30 +28,9 @@
 #define NSEC_PER_SEC 1000000000LL
 
 /*
- * This structure is needed to use SCHED_DEADLINE.
- * Linux needs these fields to know the runtime, deadline and period
- * of the real-time task.
- */
-struct sched_attr {
-    uint32_t size;
-    uint32_t sched_policy;
-    uint64_t sched_flags;
-
-    int32_t sched_nice;
-    uint32_t sched_priority;
-
-    uint64_t sched_runtime;
-    uint64_t sched_deadline;
-    uint64_t sched_period;
-};
-
-static int sched_setattr(pid_t pid, const struct sched_attr *attr, unsigned int flags)
-{
-    return syscall(SYS_sched_setattr, pid, attr, flags);
-}
-/*
- * This is a small wrapper for the Linux sched_setattr system call.
- * I need it because SCHED_DEADLINE is configured using this syscall.
+ * SCHED_DEADLINE uses struct sched_attr and sched_setattr().
+ * On this system they are already declared by <sched.h>, so they must not
+ * be redefined here.
  */
 
 static volatile sig_atomic_t keep_running = 1;
@@ -229,33 +208,24 @@ static void set_scheduling_policy(const char *policy,
  * The real-time options usually need sudo permissions.
  */
 
-/* COMEDI I/O */
+/* MOBERG I/O */
 
 /*
- * This structure stores all the COMEDI configuration.
- * It keeps the device, input/output subdevices, channels, ranges and max digital values.
+ * This structure stores all the Moberg configuration.
+ * The installed Moberg library uses struct moberg plus analog channel objects.
  */
 typedef struct {
-    comedi_t *dev;
-
-    int ai_subdev;
-    int ao_subdev;
-
-    unsigned int ai_range;
-    unsigned int ao_range;
-
-    unsigned int aref;
+    struct moberg *dev;
+    struct moberg_analog_in ai_vel;
+    struct moberg_analog_in ai_pos;
+    struct moberg_analog_out ao;
 
     unsigned int ai_vel_chan;
     unsigned int ai_pos_chan;
     unsigned int ao_chan;
-
-    lsampl_t ai_maxdata;
-    lsampl_t ao_maxdata;
-
-    const comedi_range *ai_vel_range_info;
-    const comedi_range *ai_pos_range_info;
-    const comedi_range *ao_range_info;
+    int ai_vel_open;
+    int ai_pos_open;
+    int ao_open;
 } io_context_t;
 
 static io_context_t ioctx;
@@ -268,132 +238,126 @@ static void io_init(const char *device,
                     unsigned int ao_range,
                     unsigned int aref)
 {
+    /*
+     * These parameters are kept so the command line interface remains similar
+     * to the previous COMEDI version. The Moberg API used here does not use
+     * device paths, ranges or analog references directly.
+     */
+    (void)device;
+    (void)ai_range;
+    (void)ao_range;
+    (void)aref;
+
     memset(&ioctx, 0, sizeof(ioctx));
 
-    ioctx.dev = comedi_open(device);
+    ioctx.dev = moberg_new();
     if (!ioctx.dev) {
-        comedi_perror("comedi_open");
-        fprintf(stderr, "Could not open COMEDI device %s\n", device);
-        exit(EXIT_FAILURE);
-    }
-
-    ioctx.ai_subdev = comedi_find_subdevice_by_type(ioctx.dev, COMEDI_SUBD_AI, 0);
-    if (ioctx.ai_subdev < 0) {
-        comedi_perror("comedi_find_subdevice_by_type AI");
-        exit(EXIT_FAILURE);
-    }
-
-    ioctx.ao_subdev = comedi_find_subdevice_by_type(ioctx.dev, COMEDI_SUBD_AO, 0);
-    if (ioctx.ao_subdev < 0) {
-        comedi_perror("comedi_find_subdevice_by_type AO");
+        fprintf(stderr, "Could not create Moberg device context\n");
         exit(EXIT_FAILURE);
     }
 
     ioctx.ai_vel_chan = ai_vel_chan;
     ioctx.ai_pos_chan = ai_pos_chan;
     ioctx.ao_chan = ao_chan;
-    ioctx.ai_range = ai_range;
-    ioctx.ao_range = ao_range;
-    ioctx.aref = aref;
 
-    ioctx.ai_maxdata = comedi_get_maxdata(ioctx.dev, ioctx.ai_subdev, ai_vel_chan);
-    ioctx.ao_maxdata = comedi_get_maxdata(ioctx.dev, ioctx.ao_subdev, ao_chan);
+    int ok = 1;
 
-    ioctx.ai_vel_range_info = comedi_get_range(ioctx.dev, ioctx.ai_subdev, ai_vel_chan, ai_range);
-    ioctx.ai_pos_range_info = comedi_get_range(ioctx.dev, ioctx.ai_subdev, ai_pos_chan, ai_range);
-    ioctx.ao_range_info = comedi_get_range(ioctx.dev, ioctx.ao_subdev, ao_chan, ao_range);
+    ioctx.ai_vel_open = moberg_OK(moberg_analog_in_open(ioctx.dev, (int)ioctx.ai_vel_chan, &ioctx.ai_vel));
+    ok &= ioctx.ai_vel_open;
 
-    if (!ioctx.ai_vel_range_info || !ioctx.ai_pos_range_info || !ioctx.ao_range_info) {
-        comedi_perror("comedi_get_range");
+    ioctx.ai_pos_open = moberg_OK(moberg_analog_in_open(ioctx.dev, (int)ioctx.ai_pos_chan, &ioctx.ai_pos));
+    ok &= ioctx.ai_pos_open;
+
+    ioctx.ao_open = moberg_OK(moberg_analog_out_open(ioctx.dev, (int)ioctx.ao_chan, &ioctx.ao));
+    ok &= ioctx.ao_open;
+
+    if (!ok) {
+        fprintf(stderr, "Could not open Moberg analog channels\n");
         exit(EXIT_FAILURE);
     }
 
-    printf("COMEDI device: %s\n", device);
-    printf("AI subdevice: %d, AO subdevice: %d\n", ioctx.ai_subdev, ioctx.ao_subdev);
+    printf("Moberg I/O initialized\n");
     printf("AI velocity channel: %u\n", ioctx.ai_vel_chan);
     printf("AI position channel: %u\n", ioctx.ai_pos_chan);
     printf("AO control channel: %u\n", ioctx.ao_chan);
 }
 /*
- * Initializes the COMEDI device.
- * It opens the device, finds the analog input and output subdevices,
- * and stores the channels and ranges needed later for reading and writing voltages.
+ * Initializes the Moberg device.
+ * It opens the analog input and output channels needed by the controller.
  */
 
-static double io_read_ai_volts(unsigned int channel, const comedi_range *range_info)
+static double io_read_ai_volts(struct moberg_analog_in *analog_in, unsigned int channel)
 {
-    lsampl_t data = 0;
+    double volts = 0.0;
 
-    int rc = comedi_data_read(ioctx.dev,
-                              ioctx.ai_subdev,
-                              channel,
-                              ioctx.ai_range,
-                              ioctx.aref,
-                              &data);
-
-    if (rc < 0) {
-        comedi_perror("comedi_data_read");
+    struct moberg_status status = analog_in->read(analog_in->context, &volts);
+    if (!moberg_OK(status)) {
+        fprintf(stderr, "Moberg analog read failed on channel %u\n", channel);
         return 0.0;
     }
 
-    return comedi_to_phys(data, range_info, ioctx.ai_maxdata);
+    return volts;
 }
 /*
- * Reads one analog input channel and returns the value in volts.
- * COMEDI reads a digital value first, so I convert it to a physical voltage.
+ * Reads one analog input channel from the Moberg device.
+ * The returned value is already in volts.
  */
 
 static double io_read_velocity_volts(void)
 {
-    return io_read_ai_volts(ioctx.ai_vel_chan, ioctx.ai_vel_range_info);
+    return io_read_ai_volts(&ioctx.ai_vel, ioctx.ai_vel_chan);
 }
 /*
  * Reads the velocity input channel.
- * The returned value is already converted to volts.
  */
 
 static double io_read_position_volts(void)
 {
-    return io_read_ai_volts(ioctx.ai_pos_chan, ioctx.ai_pos_range_info);
+    return io_read_ai_volts(&ioctx.ai_pos, ioctx.ai_pos_chan);
 }
 /*
  * Reads the position input channel.
- * The controller does not use it directly, but it is useful for logging the experiment.
  */
 
 static void io_write_control_volts(double volts)
 {
     volts = clamp(volts, -10.0, 10.0);
 
-    lsampl_t data = comedi_from_phys(volts, ioctx.ao_range_info, ioctx.ao_maxdata);
-
-    int rc = comedi_data_write(ioctx.dev,
-                               ioctx.ao_subdev,
-                               ioctx.ao_chan,
-                               ioctx.ao_range,
-                               ioctx.aref,
-                               data);
-
-    if (rc < 0) {
-        comedi_perror("comedi_data_write");
+    struct moberg_status status = ioctx.ao.write(ioctx.ao.context, volts, NULL);
+    if (!moberg_OK(status)) {
+        fprintf(stderr, "Moberg analog write failed on channel %u\n", ioctx.ao_chan);
     }
 }
 /*
  * Writes the control voltage to the analog output channel.
- * The value is saturated to +/-10 V and then converted to the digital value used by the board.
+ * The value is saturated to +/-10 V before it is sent to the Moberg device.
  */
 
 static void io_shutdown(void)
 {
-    io_write_control_volts(0.0);
+    if (ioctx.ao_open) {
+        io_write_control_volts(0.0);
+        moberg_analog_out_close(ioctx.dev, (int)ioctx.ao_chan, ioctx.ao);
+        ioctx.ao_open = 0;
+    }
+
+    if (ioctx.ai_vel_open) {
+        moberg_analog_in_close(ioctx.dev, (int)ioctx.ai_vel_chan, ioctx.ai_vel);
+        ioctx.ai_vel_open = 0;
+    }
+
+    if (ioctx.ai_pos_open) {
+        moberg_analog_in_close(ioctx.dev, (int)ioctx.ai_pos_chan, ioctx.ai_pos);
+        ioctx.ai_pos_open = 0;
+    }
 
     if (ioctx.dev) {
-        comedi_close(ioctx.dev);
+        moberg_free(ioctx.dev);
         ioctx.dev = NULL;
     }
 }
 /*
- * Safely closes the COMEDI device.
+ * Safely closes the Moberg device.
  * Before closing it sets the output voltage to 0 V so the actuator is not left powered.
  */
 
@@ -475,14 +439,14 @@ static void print_usage(const char *program)
     printf("  --duration-s N                     default: 20\n");
     printf("  --reference-v X                    default: 5.0\n\n");
 
-    printf("COMEDI I/O options:\n");
-    printf("  --device PATH                      default: /dev/comedi0\n");
-    printf("  --ai-vel N                         velocity AI channel, default: 0\n");
-    printf("  --ai-pos N                         position AI channel, default: 1\n");
+    printf("Moberg I/O options:\n");
+    printf("  --device PATH                      default: /dev/moberg0\n");
+    printf("  --ai-pos N                         position AI channel, default: 0\n");
+    printf("  --ai-vel N                         velocity AI channel, default: 1\n");
     printf("  --ao N                             output AO channel, default: 0\n");
-    printf("  --ai-range N                       default: 0\n");
-    printf("  --ao-range N                       default: 0\n");
-    printf("  --aref ground|common|diff|other    default: ground\n\n");
+    printf("  --ai-range N                       kept for compatibility, default: 0\n");
+    printf("  --ao-range N                       kept for compatibility, default: 0\n");
+    printf("  --aref ground|common|diff|other    kept for compatibility, default: ground\n\n");
 
     printf("Examples:\n");
     printf("  %s --policy other --cpu 1\n", program);
@@ -497,19 +461,19 @@ static void print_usage(const char *program)
 static unsigned int parse_aref(const char *s)
 {
     if (strcmp(s, "ground") == 0) {
-        return AREF_GROUND;
+        return 0;
     }
 
     if (strcmp(s, "common") == 0) {
-        return AREF_COMMON;
+        return 1;
     }
 
     if (strcmp(s, "diff") == 0) {
-        return AREF_DIFF;
+        return 2;
     }
 
     if (strcmp(s, "other") == 0) {
-        return AREF_OTHER;
+        return 3;
     }
 
     fprintf(stderr, "Unknown aref: %s\n", s);
@@ -517,8 +481,8 @@ static unsigned int parse_aref(const char *s)
     exit(EXIT_FAILURE);
 }
 /*
- * Converts the analog reference option from text to the COMEDI constant.
- * For example, "ground" becomes AREF_GROUND.
+ * Converts the analog reference option from text to a number.
+ * In this Moberg version the value is kept only for command line compatibility.
  */
 
 int main(int argc, char **argv)
@@ -528,7 +492,7 @@ int main(int argc, char **argv)
      * These are used if the user does not give another value from the terminal.
      */
     const char *policy = "other";
-    const char *device = "/dev/comedi0";
+    const char *device = "/dev/moberg0";
 
     /*
      * Default real-time and experiment parameters.
@@ -557,15 +521,20 @@ int main(int argc, char **argv)
     double reference_v = 5.0;
 
     /*
-     * Default COMEDI channels.
-     * AI0 is used for velocity, AI1 for position and AO0 for the control output.
+     * Default Moberg channels.
+     *
+     * These now match the example program:
+     *
+     * AI0 = position
+     * AI1 = velocity
+     * AO0 = control output
      */
-    unsigned int ai_vel_chan = 0;
-    unsigned int ai_pos_chan = 1;
+    unsigned int ai_vel_chan = 1;
+    unsigned int ai_pos_chan = 0;
     unsigned int ao_chan = 0;
     unsigned int ai_range = 0;
     unsigned int ao_range = 0;
-    unsigned int aref = AREF_GROUND;
+    unsigned int aref = 0;
 
     /*
      * This array defines all the command line options that the program accepts.
@@ -599,7 +568,7 @@ int main(int argc, char **argv)
     /*
      * Read the command line arguments.
      * This lets me change the scheduling policy, CPU, period, duration,
-     * COMEDI channels, etc. without recompiling the program.
+     * Moberg channels, etc. without recompiling the program.
      */
     int opt;
     while ((opt = getopt_long(argc, argv, "", long_options, NULL)) != -1) {
@@ -648,8 +617,8 @@ int main(int argc, char **argv)
             break;
 
         /*
-         * COMEDI input/output options.
-         * These are useful if the channels or ranges are different on another machine.
+         * Moberg input/output options.
+         * The ranges and analog reference are kept for compatibility with the old interface.
          */
         case 'e':
             device = optarg;
@@ -734,8 +703,14 @@ int main(int argc, char **argv)
     signal(SIGTERM, handle_signal);
 
     /*
-     * Initialize the COMEDI device and the analog channels.
+     * Initialize the Moberg device and the analog channels.
      * After this, the program can read velocity/position and write the control voltage.
+     *
+     * Default wiring:
+     *
+     * AI0 = position
+     * AI1 = velocity
+     * AO0 = control
      */
     io_init(device,
             ai_vel_chan,
@@ -831,6 +806,7 @@ int main(int argc, char **argv)
     printf("Reference:    %.3f V\n", reference_v);
     printf("Duration:     %d s\n", duration_s);
     printf("Log:          controller_log.csv\n");
+    printf("Connections:  AI0=position, AI1=velocity, AO0=control\n");
     printf("Press Ctrl+C to stop.\n\n");
 
     /*
@@ -858,10 +834,21 @@ int main(int argc, char **argv)
                                   NULL);
 
         /*
-         * If the sleep failed for a reason other than being interrupted,
+         * If the sleep was interrupted by Ctrl+C or SIGTERM,
+         * stop safely without executing another controller step.
+         */
+        if (ret == EINTR) {
+            if (!keep_running) {
+                break;
+            }
+            continue;
+        }
+
+        /*
+         * If the sleep failed for another reason,
          * print the error and stop the loop.
          */
-        if (ret != 0 && ret != EINTR) {
+        if (ret != 0) {
             errno = ret;
             perror("clock_nanosleep");
             break;
@@ -895,6 +882,12 @@ int main(int argc, char **argv)
         /*
          * Execute one controller step:
          * read sensors, compute PI output, and write the control voltage.
+         *
+         * With the corrected default connections:
+         *
+         * position is read from AI0
+         * velocity is read from AI1
+         * control is written to AO0
          */
         sample_t s = controller_step(reference_v, h);
 
@@ -966,7 +959,7 @@ int main(int argc, char **argv)
     }
 
     /*
-     * Stop the actuator and close the COMEDI device.
+     * Stop the actuator and close the Moberg device.
      * This is important so the control output is not left active.
      */
     io_shutdown();
